@@ -6,6 +6,44 @@
     <link rel="stylesheet" href="../style.css">
     <title>Guía de Excursionismo - Universidad Autónoma de Chiapas</title>
 
+    <style>
+        /* Estilos para el contenedor de las imágenes */
+        #slider {
+            width: 500px;
+            overflow: hidden;
+            margin: 0 auto;
+            position: relative; /* Se añade posición relativa para alinear los botones */
+        }
+
+        /* Estilos para las imágenes */
+        #slider img {
+            width: 100%;
+            display: block;
+        }
+
+        /* Estilos para los botones de desplazamiento */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            z-index: 1; /* Asegura que los botones estén encima de las imágenes */
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .next {
+            right: 0;
+        }
+    </style>
+
+
+
 </head>
 <body>
 
@@ -19,12 +57,42 @@
     <a href="../Lugares.html">Lugares de interés</a>
     <a href="../contacto.html">Contacto</a>
 </nav>
+<div id="slider">
+    <img src="../Img/LSC/IMG-20240424-WA0023.jpg" alt="Imagen 1">
+    <img src="../Img/LSC/EdificioA.jpg" alt="Imagen 2">
+    <img src="../Img/LSC/EdificioA2.jpg" alt="Imagen 3">
+</div>
+<!-- Botones de navegación -->
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
 
-<img src="../Img/LSC/IMG-20240424-WA0023.jpg" alt="" width=" 500px">
-<h2>En esta parte del edifico es el edificio A de parte del area que aca se practica la carrera de Licenciatura en Sistemas Computacionales</h2>
+<p>En esta parte del edifico es el edificio A de parte del area que aca se practica la carrera de Licenciatura en Sistemas Computacionales,los estudiantes de la Licenciatura en Sistemas Computacionales encuentran un espacio dedicado al aprendizaje práctico y al desarrollo de habilidades informáticas de vanguardia.</p>
 
-<footer><p>© 2024 Universidad Autónoma de Chiapas</p></footer>
+<footer>
+    <p>© 2024 Universidad Autónoma de Chiapas</p>
+    <a href="../LCS/LSC.html">Volver a la página principal de LCS</a>
+</footer>
 
+<script>
+    // Script para el deslizamiento de imágenes
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.querySelectorAll('#slider img');
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slides[slideIndex-1].style.display = "block";
+    }
+</script>
 
 </body>
 </html>

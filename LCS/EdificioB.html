@@ -5,6 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
     <title>Guía de Excursionismo - Universidad Autónoma de Chiapas</title>
+    <style>
+        /* Estilos para el contenedor de las imágenes */
+        #slider {
+            width: 500px;
+            overflow: hidden;
+            margin: 0 auto;
+            position: relative; /* Se añade posición relativa para alinear los botones */
+        }
+
+        /* Estilos para las imágenes */
+        #slider img {
+            width: 100%;
+            display: block;
+        }
+
+        /* Estilos para los botones de desplazamiento */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            z-index: 1; /* Asegura que los botones estén encima de las imágenes */
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .next {
+            right: 0;
+        }
+    </style>
 
 </head>
 <body>
@@ -20,11 +55,41 @@
     <a href="../contacto.html">Contacto</a>
 </nav>
 
-<img src="../Img/LSC/IMG-20240424-WA0026.jpg" alt="" width=" 500px">
-<h2>En esta parte del edifico es el edificio B de parte del area que aca se practica la carrera de Licenciatura en Desarrollo Tecnologico de Software</h2>
+<div id="slider">
+    <img src="../Img/LSC/IMG-20240424-WA0026.jpg" alt="">
+    <img src="../Img/LSC/edificiob.jpg" alt="">
+    <img src="../Img/LSC/audiovisual.jpg" alt="">
+</div>
 
-<footer><p>© 2024 Universidad Autónoma de Chiapas</p></footer>
+<p>En esta parte del edifico es el edificio B de parte del area que aca se practica la carrera de Licenciatura en Ingenieria en Desarrollo Tecnologico de Software.
+    Aquí, en el corazón de la innovación en tecnología, los estudiantes encuentran un espacio dedicado al aprendizaje práctico y al desarrollo de habilidades en el ámbito del desarrollo de software. y tambien se encuentra el cuartgo del audiovisual del area en donde se realizan conferencias y platicas a los grupos de ambas carreras </p>
+<!-- Botones de navegación -->
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+<footer>
+    <p>© 2024 Universidad Autónoma de Chiapas</p>
+    <a href="../LCS/LSC.html">Volver a la página principal de LCS</a>
+</footer>
+<script>
+    // Script para el deslizamiento de imágenes
+    var slideIndex = 1;
+    showSlides(slideIndex);
 
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.querySelectorAll('#slider img');
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slides[slideIndex-1].style.display = "block";
+    }
+</script>
 
 </body>
 </html>
